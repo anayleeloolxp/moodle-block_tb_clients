@@ -17,8 +17,9 @@
 /**
  * Moodle Get settings from L
  *
- * @package mod_regularvideo
- * @copyright  2009 Petr Skoda (http://skodak.org)
+ * @package    block_tb_clients
+ * @copyright  2020 Leeloo LXP (https://leeloolxp.com)
+ * @author     Leeloo LXP <info@leeloolxp.com>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 

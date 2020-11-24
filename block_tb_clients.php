@@ -57,7 +57,9 @@ class block_tb_clients extends block_base {
 
         $leeloolxplicense = get_config('block_tb_clients')->license;
 
-        $url = 'https://leeloolxp.com/api_moodle.php/?action=page_info';
+        $settingsjson = get_config('block_tb_clients')->settingsjson;
+
+        /*$url = 'https://leeloolxp.com/api_moodle.php/?action=page_info';
         $postdata = '&license_key=' . $leeloolxplicense;
 
         $curl = new curl;
@@ -99,7 +101,8 @@ class block_tb_clients extends block_base {
             return $this->content;
         }
 
-        $resposedata = json_decode($output);
+        $resposedata = json_decode($output);*/
+        $resposedata = json_decode(base64_decode($settingsjson));
         $mdata = $resposedata->data->trustus_settings;
 
         if (empty($resposedata->data->block_title)) {
@@ -156,5 +159,14 @@ class block_tb_clients extends block_base {
      */
     public function applicable_formats() {
         return array('all' => true);
+    }
+    
+
+    /**
+     * Get settings from Leeloo
+     */
+    public function cron() {
+        require_once($CFG->dirroot . '/blocks/tb_clients/lib.php');
+        updateconfclients();
     }
 }

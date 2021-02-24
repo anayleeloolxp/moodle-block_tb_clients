@@ -25,7 +25,6 @@
 defined('MOODLE_INTERNAL') || die;
 
 if ($ADMIN->fulltree) {
-
     require_once($CFG->dirroot . '/blocks/tb_clients/lib.php');
 
     $setting = new admin_setting_configtext(
@@ -39,5 +38,4 @@ if ($ADMIN->fulltree) {
 
     $setting = new admin_setting_configclients('block_tb_clients/settingsjson', '', '', '', PARAM_RAW);
     $settings->add($setting);
-
 }

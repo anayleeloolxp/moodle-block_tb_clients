@@ -59,49 +59,6 @@ class block_tb_clients extends block_base {
 
         $settingsjson = get_config('block_tb_clients')->settingsjson;
 
-        /*$url = 'https://leeloolxp.com/api_moodle.php/?action=page_info';
-        $postdata = '&license_key=' . $leeloolxplicense;
-
-        $curl = new curl;
-
-        $options = array(
-            'CURLOPT_RETURNTRANSFER' => true,
-            'CURLOPT_HEADER' => false,
-            'CURLOPT_POST' => 1,
-        );
-
-        if (!$output = $curl->post($url, $postdata, $options)) {
-            $this->content->text = get_string('nolicense', 'block_tb_clients');
-            return $this->content;
-        }
-
-        $infoleeloolxp = json_decode($output);
-
-        if ($infoleeloolxp->status != 'false') {
-            $leeloolxpurl = $infoleeloolxp->data->install_url;
-        } else {
-            $this->content->text = get_string('nolicense', 'block_tb_clients');
-            return $this->content;
-        }
-
-        $url = $leeloolxpurl . '/admin/Theme_setup/get_trustus_settings';
-
-        $postdata = '&license_key=' . $leeloolxplicense;
-
-        $curl = new curl;
-
-        $options = array(
-            'CURLOPT_RETURNTRANSFER' => true,
-            'CURLOPT_HEADER' => false,
-            'CURLOPT_POST' => 1,
-        );
-
-        if (!$output = $curl->post($url, $postdata, $options)) {
-            $this->content->text = get_string('nolicense', 'block_tb_clients');
-            return $this->content;
-        }
-
-        $resposedata = json_decode($output);*/
         $resposedata = json_decode(base64_decode($settingsjson));
         $mdata = $resposedata->data->trustus_settings;
 
@@ -113,12 +70,11 @@ class block_tb_clients extends block_base {
 
         $this->page->requires->js(new moodle_url($CFG->wwwroot . '/blocks/tb_clients/js/jquery.min.js'));
         $this->page->requires->js(new moodle_url($CFG->wwwroot . '/blocks/tb_clients/js/owl.carousel.js'));
-        if($autoslide == 1){
+        if ($autoslide == 1) {
             $this->page->requires->js(new moodle_url($CFG->wwwroot . '/blocks/tb_clients/js/owlslider-auto.js'));
-        }else{
+        } else {
             $this->page->requires->js(new moodle_url($CFG->wwwroot . '/blocks/tb_clients/js/owlslider.js'));
         }
-        
 
         $this->page->requires->css(new moodle_url($CFG->wwwroot . '/blocks/tb_clients/css/owl.carousel.min.css'));
         $this->page->requires->css(new moodle_url($CFG->wwwroot . '/blocks/tb_clients/css/owl.theme.default.min.css'));
@@ -126,13 +82,13 @@ class block_tb_clients extends block_base {
         $this->content = new stdClass();
         $this->content->text = '<div class="tb_clients owl-carousel owl-theme">';
 
-        foreach($mdata as $mdatasing){
+        foreach ($mdata as $mdatasing) {
             $this->content->text .= '<div id="clients_box" class="clients_box">';
 
             $this->content->text .= '<div class="clients_img">';
             $this->content->text .= '<a href="' . $mdatasing->image_link . '"><img src="' . $mdatasing->image . '"/></a>';
             $this->content->text .= '</div>';
-    
+
             $this->content->text .= '</div>';
         }
 
@@ -160,7 +116,6 @@ class block_tb_clients extends block_base {
     public function applicable_formats() {
         return array('all' => true);
     }
-    
 
     /**
      * Get settings from Leeloo

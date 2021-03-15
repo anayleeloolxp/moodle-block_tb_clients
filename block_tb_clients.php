@@ -60,6 +60,15 @@ class block_tb_clients extends block_base {
         $settingsjson = get_config('block_tb_clients')->settingsjson;
 
         $resposedata = json_decode(base64_decode($settingsjson));
+
+        if (!isset($resposedata->data->trustus_settings)) {
+            $this->title = get_string('displayname', 'block_tb_clients');
+            $this->content = new stdClass();
+            $this->content->text = '';
+            $this->content->footer = '';
+            return $this->content;
+        }
+
         $mdata = $resposedata->data->trustus_settings;
 
         if (empty($resposedata->data->block_title)) {

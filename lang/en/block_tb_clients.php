@@ -25,6 +25,7 @@
 
 $string['pluginname'] = 'Leeloo LXP Clients';
 $string['displayname'] = 'Leeloo LXP Clients';
+$string['blocktitle'] = 'Leeloo LXP Clients';
 $string['nolicense'] = 'Invalid Leeloo LXP License ID';
 $string['license'] = 'Leeloo LXP License ID';
 $string['tb_clients:addinstance'] = 'Add a new Leeloo LXP Clients block';

@@ -85,8 +85,6 @@ class block_tb_clients extends block_base {
             $this->page->requires->js(new moodle_url($CFG->wwwroot . '/blocks/tb_clients/js/owlslider.js'));
         }
 
-        $this->page->requires->css(new moodle_url($CFG->wwwroot . '/blocks/tb_clients/css/owl.carousel.min.css'));
-        $this->page->requires->css(new moodle_url($CFG->wwwroot . '/blocks/tb_clients/css/owl.theme.default.min.css'));
 
         $this->content = new stdClass();
         $this->content->text = '<div class="tb_clients owl-carousel owl-theme">';

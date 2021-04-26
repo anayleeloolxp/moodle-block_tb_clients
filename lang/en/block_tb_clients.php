@@ -23,12 +23,12 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-$string['pluginname'] = 'Leeloo LXP Clients';
-$string['displayname'] = 'Leeloo LXP Clients';
-$string['blocktitle'] = 'Leeloo LXP Clients';
+$string['pluginname'] = 'Leeloo LXP Sliding Clients';
+$string['displayname'] = 'Leeloo LXP Sliding Clients';
+$string['blocktitle'] = 'Leeloo LXP Sliding Clients';
 $string['nolicense'] = 'Invalid Leeloo LXP License ID';
 $string['license'] = 'Leeloo LXP License ID';
-$string['tb_clients:addinstance'] = 'Add a new Leeloo LXP Clients block';
-$string['tb_clients:myaddinstance'] = 'Add a new Leeloo LXP Clients block to Dashboard';
+$string['tb_clients:addinstance'] = 'Add a new Leeloo LXP Sliding Clients block';
+$string['tb_clients:myaddinstance'] = 'Add a new Leeloo LXP Sliding Clients block to Dashboard';
 
-$string['privacy:metadata'] = 'The Leeloo LXP Clients (tb_clients) block only shows information and does not store data itself.';
+$string['privacy:metadata'] = 'The Leeloo LXP Sliding Clients (tb_clients) block only shows information and does not store data itself.';

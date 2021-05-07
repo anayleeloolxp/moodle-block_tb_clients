@@ -62,7 +62,11 @@ class block_tb_clients extends block_base {
         $resposedata = json_decode(base64_decode($settingsjson));
 
         if (!isset($resposedata->data->trustus_settings)) {
-            $this->title = get_string('displayname', 'block_tb_clients');
+            if ($this->page->user_is_editing()) {
+                $this->title = get_string('displayname', 'block_tb_clients');
+            } else {
+                $this->title = '';
+            }
             $this->content = new stdClass();
             $this->content->text = '';
             $this->content->footer = '';
@@ -72,7 +76,11 @@ class block_tb_clients extends block_base {
         $mdata = $resposedata->data->trustus_settings;
 
         if (empty($resposedata->data->block_title)) {
-            $resposedata->data->block_title = get_string('displayname', 'block_tb_clients');
+            if ($this->page->user_is_editing()) {
+                $resposedata->data->block_title = get_string('displayname', 'block_tb_clients');
+            } else {
+                $resposedata->data->block_title = '';
+            }
         }
         $this->title = $resposedata->data->block_title;
         $autoslide = @$resposedata->data->autoslide;

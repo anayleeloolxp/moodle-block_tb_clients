@@ -81,7 +81,13 @@ class block_tb_clients extends block_base {
                 $resposedata->data->block_title = '';
             }
         }
-        $this->title = $resposedata->data->block_title;
+
+        $summaryformatoptions = new stdClass();
+        $summaryformatoptions->noclean = false;
+        $summaryformatoptions->overflowdiv = false;
+        $summaryformatoptions->filter = true;
+
+        $this->title = format_text($resposedata->data->block_title, 1, $summaryformatoptions);
         $autoslide = @$resposedata->data->autoslide;
 
         $this->page->requires->jquery();
